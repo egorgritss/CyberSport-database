@@ -1,0 +1,102 @@
+1.Jaký věk má hráč s přizdívkou s1mple?
+
+RA: 
+player(nickname='s1mple')[age]
+
+SQL:
+SELECT age
+FROM PLAYER
+WHERE nickname = 's1mple';
+
+
+2.Kolik týmů sponzoruje Logitech?
+
+SQL:
+SELECT count(*) ammount
+FROM sponsors 
+WHERE id_sponsor = (SELECT id_sponsor
+	FROM sponsor
+	WHERE name = 'Logitech');
+
+
+3.Seznam zakázaných hráčů od roku 2018.
+
+RA:
+banned(banned_from>='01.01.2018') *> player
+
+SQL:
+select id_player, name, surname, nickname, age, raiting, id_team, player_type 
+from player join Banned using (id_player)
+where player.player_type = 'Banned' and Banned.banned_from >= '01.01.2018';
+
+
+4.Jmena týmů, které zúčastnili pouze LocalGame1337.
+
+RA:
+{tournament(name = 'LocalGame1337') *> result *> team}[name]
+\
+{tournament(name != 'LocalGame1337') *> result *> team}[name]
+
+SQL:
+select name from(
+select t.*
+from team t join result r on r.id_team = t.id_team join tournament m on m.id_tournament = r.id_tournament
+where m.name='LocalGame1337'
+minus
+select t.*
+from team t join result r on r.id_team = t.id_team join tournament m on m.id_tournament = r.id_tournament
+where m.name!='LocalGame1337'
+);
+
+
+5.Seznam všech týmů, které zúčastnili vse turnaje.
+
+RA:
+{result[id_team, id_tournament] ÷ tournament[id_tournament]}[id_team] *> team
+
+SQL:
+select * from team m where not exists(
+    select * from tournament t where not exists (
+        select * from result r where t.id_tournament = r.id_tournament and r.id_team=m.id_team)
+    )
+
+
+6.Vypiš všechny sponzory, a k nim týmy které sponzorují
+
+SQL:
+select s.name as sponsor,t.name as team 
+from sponsor s left join sponsors m on s.id_sponsor=m.id_sponsor left join team t on t.id_team = m.id_team 
+
+
+7.Vypiš všechny sponzory a všechny týmy, včetně všech záznamů o sponzorství
+
+SQL:
+select s.name as sponsor,t.name as team 
+from sponsor s full join sponsors m on s.id_sponsor=m.id_sponsor full join team t on t.id_team = m.id_team 
+
+
+8.Vytvoř pohled na úspěšné týmy - týmy které hrajou turnaje a mají zlatou medaili.
+
+SQL:
+create or replace view successful_teams as
+select t.name, t.raiting , m.prize_pool as earned
+from team t join result r on r.id_team=t.id_team join tournament m on r.id_tournament = m.id_tournament
+where r.medal = 'gold'
+
+
+9.Smaž všechny zakázané hráče
+
+SQL:
+delete banned where id_player in (select id_player from player where player_type='Banned');
+delete player where id_player in (select id_player from player where player_type='Banned');
+commit;
+
+
+10.Vypiš všechny týmy, které hráli více než 2 turnaje. Seřadíme podle počtu turnajů
+
+SQL:
+select t.name,  (select count(*) from tournament join result using(id_tournament) where result.id_team = r.id_team) as tournament_count
+from team t join result r on r.id_team=t.id_team
+group by r.id_team, t.name
+having (select count(*) from tournament join result using(id_tournament) where result.id_team = r.id_team) > 2
+order by tournament_count
