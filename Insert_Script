@@ -1,0 +1,403 @@
+exec vymaz_data_vsech_tabulek;
+alter session set nls_date_format = 'dd.mm.yyyy';
+
+/*COUNTRY TABLE*/
+insert into country (id_country, name) values (1, 'Germany');
+insert into country (id_country, name) values (2, 'Poland');
+insert into country (id_country, name) values (3, 'Narnia');
+insert into country (id_country, name) values (4, 'Belarus');
+insert into country (id_country, name) values (5, 'Czech Republic');
+insert into country (id_country, name) values (6, 'USA');
+insert into country (id_country, name) values (7, 'China');
+insert into country (id_country, name) values (8, 'North Korea');
+
+
+/*CITY TABLE*/
+insert into city (id_city, name, id_country) values (1, 'Berlin', 1);
+insert into city (id_city, name, id_country) values (2, 'Katowice', 2);
+insert into city (id_city, name, id_country) values (3, 'Järna', 3);
+insert into city (id_city, name, id_country) values (4, 'Minsk', 4);
+insert into city (id_city, name, id_country) values (5, 'Prague', 5);
+insert into city (id_city, name, id_country) values (6, 'New York', 6);
+insert into city (id_city, name, id_country) values (7, 'Beijing', 7);
+insert into city (id_city, name, id_country) values (8, 'Pyongyang', 8);
+insert into city (id_city, name, id_country) values (9, 'Munich', 1);
+insert into city (id_city, name, id_country) values (10, 'Warsaw', 2);
+insert into city (id_city, name, id_country) values (11, 'Aricagua', 3);
+insert into city (id_city, name, id_country) values (12, 'Brest', 4);
+insert into city (id_city, name, id_country) values (13, 'Brno', 5);
+insert into city (id_city, name, id_country) values (14, 'Los Angeles', 6);
+insert into city (id_city, name, id_country) values (15, 'Shanghai', 7);
+
+
+/*LOCATION TABLE*/
+insert into location (id_location, name, id_city) values (1, 'Reichert Arena', 1);
+insert into location (id_location, name, id_city) values (2, 'Minsk Arena', 4);
+insert into location (id_location, name, id_city) values (3, 'Bartell Stadium', 3);
+insert into location (id_location, name, id_city) values (4, 'Arena Arena', 2);
+insert into location (id_location, name, id_city) values (5, 'McLaughlin Arena', 12);
+insert into location (id_location, name, id_city) values (6, 'Garage', 8);
+insert into location (id_location, name, id_city) values (7, 'Greenholt Arena', 14);
+insert into location (id_location, name, id_city) values (8, 'Meme Arena', 12);
+
+/*TOURNAMENT TABLE*/
+insert into tournament (id_tournament, name, start_date, end_date, prize_pool, id_location) values (1, 'IEM Katowice 2016', '16.4.2016', '16.10.2016', 760000, 4);
+insert into tournament (id_tournament, name, start_date, end_date, prize_pool, id_location) values (2, 'LocalGame1337', '07.12.2015', '12.12.2015', 0, 8);
+insert into tournament (id_tournament, name, start_date, end_date, prize_pool, id_location) values (3, 'Facit Major 2017', '05.02.2017', '08.02.2017', 444444, 8);
+insert into tournament (id_tournament, name, start_date, end_date, prize_pool, id_location) values (4, 'ESL PRO LEAGUE 2016', '01.08.2016', '08.08.2016', 10000, 7);
+insert into tournament (id_tournament, name, start_date, end_date, prize_pool, id_location) values (5, 'Dreamhack 2020', '01.04.2020', '04.04.2020', 1000000, 1);
+insert into tournament (id_tournament, name, start_date, end_date, prize_pool, id_location) values (6, 'Starladder 2015', '06.07.2015', '10.07.2015', 26000, 2);
+
+/*EMPLOYEE TABLE*/
+insert into employee (id_employee, name, surname, age, id_tournament, empl_type, salary) values (1, 'Melany', 'Dunmore', 36, 1, 'Commentator',1337);
+insert into employee (id_employee, name, surname, age, id_tournament, empl_type, salary) values (2, 'Drucy', 'Losemann', 64, 3, 'Commentator',228);
+insert into employee (id_employee, name, surname, age, id_tournament, empl_type, salary) values (3, 'Lammond', 'Jaycox', 70, 3, 'Analyst',420);
+insert into employee (id_employee, name, surname, age, id_tournament, empl_type, salary) values (4, 'Joni', 'Ennever', 27, 4, 'Commentator',300);
+insert into employee (id_employee, name, surname, age, id_tournament, empl_type, salary) values (5, 'Debora', 'Mineghelli', 47, 5, 'Analyst',400);
+insert into employee (id_employee, name, surname, age, id_tournament, empl_type, salary) values (6, 'Benedicta', 'Sedman', 41, 6, 'Commentator',500);
+insert into employee (id_employee, name, surname, age, id_tournament, empl_type, salary) values (7, 'Guinevere', 'Tineman', 24, 1, 'Analyst',123456789);
+insert into employee (id_employee, name, surname, age, id_tournament, empl_type, salary) values (8, 'Caryl', 'Mushawe', 68, 3, 'Commentator',11233415);
+insert into employee (id_employee, name, surname, age, id_tournament, empl_type, salary) values (9, 'Rafael', 'Smaleman', 34, 3, 'Analyst',123542);
+insert into employee (id_employee, name, surname, age, id_tournament, empl_type, salary) values (10, 'Morgan', 'Itter', 64, 4, 'Analyst',3674);
+insert into employee (id_employee, name, surname, age, id_tournament, empl_type, salary) values (11, 'Eilis', 'Thormann', 31, 5, 'Commentator',1523);
+insert into employee (id_employee, name, surname, age, id_tournament, empl_type, salary) values (12, 'Gonzalo', 'Thomazin', 25, 6, 'Analyst',84567);
+insert into employee (id_employee, name, surname, age, id_tournament, empl_type, salary) values (13, 'Hunfredo', 'Passfield', 60, 1, 'Commentator',3456);
+insert into employee (id_employee, name, surname, age, id_tournament, empl_type, salary) values (14, 'Tomasine', 'Ingray', 21, 1, 'Analyst',1234);
+insert into employee (id_employee, name, surname, age, id_tournament, empl_type, salary) values (15, 'Ginger', 'Batters', 58, 3, 'Commentator',45678);
+insert into employee (id_employee, name, surname, age, id_tournament, empl_type, salary) values (16, 'Farris', 'Dadge', 46, 4, 'Commentator',345678);
+insert into employee (id_employee, name, surname, age, id_tournament, empl_type, salary) values (17, 'Oliver', 'Dunrige', 37, 5, 'Analyst',248);
+insert into employee (id_employee, name, surname, age, id_tournament, empl_type, salary) values (18, 'Yancy', 'Ruse', 46, 6, 'Commentator',3568);
+insert into employee (id_employee, name, surname, age, id_tournament, empl_type, salary) values (19, 'Tobye', 'Dobrovolny', 68, 1, 'Analyst',236);
+insert into employee (id_employee, name, surname, age, id_tournament, empl_type, salary) values (20, 'Kin', 'Thomsson', 54, 3, 'Commentator',967);
+
+/*COMMENTATOR TABLE*/
+insert into commentator (language, id_employee) values ('Kyrgyz', 1);
+insert into commentator (language, id_employee) values ('Northern Sotho', 2);
+insert into commentator (language, id_employee) values ('English', 4);
+insert into commentator (language, id_employee) values ('Mongolian', 6);
+insert into commentator (language, id_employee) values ('Telugu', 8);
+insert into commentator (language, id_employee) values ('Indonesian', 11);
+insert into commentator (language, id_employee) values ('Belarusian', 13);
+insert into commentator (language, id_employee) values ('Kurdish', 15);
+insert into commentator (language, id_employee) values ('Haitian Creole', 16);
+insert into commentator (language, id_employee) values ('Swati', 18);
+insert into commentator (language, id_employee) values ('English', 20);
+
+/*ANALYST TABLE*/
+insert into analyst (field, id_employee) values ('game', 3);
+insert into analyst (field, id_employee) values ('game', 5);
+insert into analyst (field, id_employee) values ('betting', 7);
+insert into analyst (field, id_employee) values ('game', 9);
+insert into analyst (field, id_employee) values ('game', 10);
+insert into analyst (field, id_employee) values ('game', 12);
+insert into analyst (field, id_employee) values ('game', 14);
+insert into analyst (field, id_employee) values ('betting', 17);
+insert into analyst (field, id_employee) values ('betting', 19);
+
+
+
+
+
+
+
+
+/*SPONSOR TABLE*/
+insert into sponsor (id_sponsor, name) values (1, 'Logitech');
+insert into sponsor (id_sponsor, name) values (2, 'Realfire');
+insert into sponsor (id_sponsor, name) values (3, 'Apple');
+insert into sponsor (id_sponsor, name) values (4, 'Lazz');
+insert into sponsor (id_sponsor, name) values (5, 'Jetpulse');
+insert into sponsor (id_sponsor, name) values (6, 'Photobean');
+insert into sponsor (id_sponsor, name) values (7, 'Wikibox');
+insert into sponsor (id_sponsor, name) values (8, 'Youbridge');
+insert into sponsor (id_sponsor, name) values (9, 'Razer');
+insert into sponsor (id_sponsor, name) values (10, 'HyperX');
+insert into sponsor (id_sponsor, name) values (11, 'Youbridge');
+insert into sponsor (id_sponsor, name) values (12, 'Twitternation');
+insert into sponsor (id_sponsor, name) values (13, 'Parents');
+insert into sponsor (id_sponsor, name) values (14, 'Asus');
+insert into sponsor (id_sponsor, name) values (15, 'Dad');
+
+/*TEAM TABLE*/
+insert into team (id_team, name, raiting) values (1, 'Astralis', 1);
+insert into team (id_team, name, raiting) values (2, 'Natus Vincere', 2);
+insert into team (id_team, name, raiting) values (3, 'fnatic', 3);
+insert into team (id_team, name, raiting) values (4, 'mousesports', 4);
+insert into team (id_team, name, raiting) values (5, 'Luquid', 5);
+insert into team (id_team, name, raiting) values (6, 'G2', 6);
+insert into team (id_team, name, raiting) values (7, 'FaZe', 7);
+insert into team (id_team, name, raiting) values (8, 'Evil Geniuses', 8);
+insert into team (id_team, name, raiting) values (9, 'FURIA', 9);
+insert into team (id_team, name, raiting) values (10, '100 Thieves', 10);
+insert into team (id_team, name, raiting) values (11, 'NiP', 11);
+insert into team (id_team, name, raiting) values (12, 'MAD Lions', 12);
+insert into team (id_team, name, raiting) values (13, 'Vitality', 13);
+insert into team (id_team, name, raiting) values (14, 'MIBR', 14);
+insert into team (id_team, name, raiting) values (15, 'OG', 15);
+insert into team (id_team, name, raiting) values (16, 'oIo', null);
+
+/*SPONSORS TABLE*/
+insert into sponsors (id_team, id_sponsor) values (8, 8);
+insert into sponsors (id_team, id_sponsor) values (3, 7);
+insert into sponsors (id_team, id_sponsor) values (11, 5);
+insert into sponsors (id_team, id_sponsor) values (6, 7);
+insert into sponsors (id_team, id_sponsor) values (12, 2);
+insert into sponsors (id_team, id_sponsor) values (5, 11);
+insert into sponsors (id_team, id_sponsor) values (1, 2);
+insert into sponsors (id_team, id_sponsor) values (6, 1);
+insert into sponsors (id_team, id_sponsor) values (11, 4);
+insert into sponsors (id_team, id_sponsor) values (9, 6);
+insert into sponsors (id_team, id_sponsor) values (10, 5);
+insert into sponsors (id_team, id_sponsor) values (8, 3);
+insert into sponsors (id_team, id_sponsor) values (12, 7);
+insert into sponsors (id_team, id_sponsor) values (4, 12);
+insert into sponsors (id_team, id_sponsor) values (3, 4);
+insert into sponsors (id_team, id_sponsor) values (2, 2);
+insert into sponsors (id_team, id_sponsor) values (3, 6);
+insert into sponsors (id_team, id_sponsor) values (4, 11);
+insert into sponsors (id_team, id_sponsor) values (3, 5);
+insert into sponsors (id_team, id_sponsor) values (1, 13);
+insert into sponsors (id_team, id_sponsor) values (5, 1);
+insert into sponsors (id_team, id_sponsor) values (2, 9);
+insert into sponsors (id_team, id_sponsor) values (4, 5);
+insert into sponsors (id_team, id_sponsor) values (9, 10);
+insert into sponsors (id_team, id_sponsor) values (1, 3);
+insert into sponsors (id_team, id_sponsor) values (15, 2);
+insert into sponsors (id_team, id_sponsor) values (1, 11);
+
+
+/*RESULT TABLE*/
+insert into result (id_result, place, medal, id_tournament, id_team) values (1, 1, 'gold', 1,1);
+insert into result (id_result, place, medal, id_tournament, id_team) values (2, 2, 'silver', 1,2);
+insert into result (id_result, place, medal, id_tournament, id_team) values (3, 3, 'bronze', 1,3);
+insert into result (id_result, place, id_tournament, id_team) values (4, 4, 1, 10);
+insert into result (id_result, place, medal, id_tournament, id_team) values (5, 1, 'gold', 3, 2 );
+insert into result (id_result, place, medal, id_tournament, id_team) values (6, 2, 'silver', 3, 1);
+insert into result (id_result, place, medal, id_tournament, id_team) values (7, 3, 'bronze', 3, 4);
+insert into result (id_result, place, id_tournament, id_team) values (8, 4, 3, 11);
+insert into result (id_result, place, id_tournament, id_team) values (9, 1, 2, 10);
+insert into result (id_result, place, id_tournament, id_team) values (10, 2, 2 , 13);
+insert into result (id_result, place, id_tournament, id_team) values (11, 3, 2, 6);
+insert into result (id_result, place, id_tournament, id_team) values (12, 4, 2, 1 );
+insert into result (id_result, place, medal, id_tournament, id_team) values (13, 1, 'gold', 4, 3);
+insert into result (id_result, place, medal, id_tournament, id_team) values (14, 2, 'silver', 4, 1);
+insert into result (id_result, place, medal, id_tournament, id_team) values (15, 3,'bronze', 4, 2);
+insert into result (id_result, place, id_tournament, id_team) values (16, 4, 4, 4);
+insert into result (id_result, place, medal, id_tournament, id_team) values (17, 1, 'gold',5,1);
+insert into result (id_result, place, medal, id_tournament, id_team) values (18, 2, 'silver', 5, 3);
+insert into result (id_result, place, medal, id_tournament, id_team) values (19, 3, 'bronze',5,2);
+insert into result (id_result, place, id_tournament, id_team) values (20, 4, 5,5);
+insert into result (id_result, place, medal, id_tournament, id_team) values (21, 1, 'gold',6,1);
+insert into result (id_result, place, medal, id_tournament, id_team) values (22, 2, 'silver', 6, 3);
+insert into result (id_result, place, medal, id_tournament, id_team) values (23, 3, 'bronze',6,2);
+insert into result (id_result, place, id_tournament, id_team) values (24, 4, 6,7);
+
+
+
+
+
+
+/*PLAYER TABLE*/
+insert into player (id_player, name, surname, nickname, age, raiting, id_team, player_type) values (1, 'Hali', 'Ramsbotham', 'Xyp9x', 29, 23, 1, 'Active');
+insert into player (id_player, name, surname, nickname, age, raiting, id_team, player_type) values (2, 'Malina', 'Iacomettii', 'dupreeh', 27, 24, 1, 'Active');
+insert into player (id_player, name, surname, nickname, age, raiting, id_team, player_type) values (3, 'Johnathan', 'Spong', 'gla1ve', 27, 25, 1, 'Active');
+insert into player (id_player, name, surname, nickname, age, raiting, id_team, player_type) values (4, 'Karyl', 'Lobley', 'device', 25, 3, 1, 'Active');
+insert into player (id_player, name, surname, nickname, age, raiting, id_team, player_type) values (5, 'Massimo', 'Noad', 'Magisk', 26, 26, 1, 'Active');
+
+insert into player (id_player, name, surname, nickname, age, raiting, id_team, player_type) values (6, 'Lettie', 'Shergill', 'flamie', 20, 21, 2, 'Active');
+insert into player (id_player, name, surname, nickname, age, raiting, id_team, player_type) values (7, 'Bailie', 'Dungee', 's1mple', 28, 2, 2, 'Active');
+insert into player (id_player, name, surname, nickname, age, raiting, id_team, player_type) values (8, 'Mignon', 'Moreside', 'electronic', 25, 6, 2, 'Active');
+insert into player (id_player, name, surname, nickname, age, raiting, id_team, player_type) values (9, 'Vern', 'Lewis', 'BoombI4', 18, 22, 2, 'Active');
+insert into player (id_player, name, surname, nickname, age, id_team, player_type) values (10, 'Verena', 'Dovydenas', 'Perfecto', 21, 2, 'Active');
+
+insert into player (id_player, name, surname, nickname, age, raiting, id_team, player_type) values (11, 'Kimberlee', 'Mahony', 'flusha', 27, 12, 3, 'Active');
+insert into player (id_player, name, surname, nickname, age, raiting, id_team, player_type) values (12, 'Pascal', 'Murby', 'KW', 27, 13, 3, 'Active');
+insert into player (id_player, name, surname, nickname, age, raiting, id_team, player_type) values (13, 'Juana', 'Perford', 'KRIMZ', 20, 15, 3, 'Active');
+insert into player (id_player, name, surname, nickname, age, raiting, id_team, player_type) values (14, 'Tabor', 'Lantry', 'Golden', 27, 14, 3, 'Active');
+insert into player (id_player, name, surname, nickname, age, raiting, id_team, player_type) values (15, 'York', 'Sellen', 'Brollan', 21, 11, 3, 'Active');
+
+insert into player (id_player, name, surname, nickname, age, raiting, id_team, player_type) values (16, 'Gar', 'Carlisso', 'karrigan', 29, 10, 4, 'Active');
+insert into player (id_player, name, surname, nickname, age, raiting, id_team, player_type) values (17, 'Licha', 'Mockett', 'chrisJ', 21, 9, 4, 'Active');
+insert into player (id_player, name, surname, nickname, age, raiting, id_team, player_type) values (18, 'Lethia', 'Huyge', 'woxic', 21, 8, 4, 'Active');
+insert into player (id_player, name, surname, nickname, age, raiting, id_team, player_type) values (19, 'Ludvig', 'Ketteringham', 'frozen', 25, 7, 4, 'Active');
+insert into player (id_player, name, surname, nickname, age, raiting, id_team, player_type) values (20, 'Illa', 'Jarmyn', 'ropz', 25, 5, 4, 'Active');
+
+insert into player (id_player, name, surname, nickname, age, raiting, id_team, player_type) values (21, 'Marietta', 'Dederick', 'nitro', 20, 4, 5, 'Active');
+insert into player (id_player, name, surname, nickname, age, raiting, id_team, player_type) values (22, 'Nichol', 'Lago', 'NAF', 27, 16, 5, 'Active');
+insert into player (id_player, name, surname, nickname, age, raiting, id_team, player_type) values (23, 'Chiarra', 'Nibloe', 'EliGE', 23, 17, 5, 'Active');
+insert into player (id_player, name, surname, nickname, age, raiting, id_team, player_type) values (24, 'Allix', 'Goodridge', 'Stewie2K', 30, 18, 5, 'Active');
+insert into player (id_player, name, surname, nickname, age, raiting, id_team, player_type) values (25, 'Leopold', 'Zanneli', 'Twistzz', 28, 19, 5, 'Active');
+
+insert into player (id_player, name, surname, nickname, age, raiting, id_team, player_type) values (26, 'Madlin', 'Semmens', 'JaCkz', 29, 29, 6, 'Active');
+insert into player (id_player, name, surname, nickname, age, raiting, id_team, player_type) values (27, 'Huey', 'Olden', 'huNter-', 29, 28, 6, 'Active');
+insert into player (id_player, name, surname, nickname, age, raiting, id_team, player_type) values (28, 'Myrtice', 'Thandi', 'kennyS', 30, 27, 6, 'Active');
+insert into player (id_player, name, surname, nickname, age, id_team, player_type) values (29, 'Aurelie', 'Menhenitt', 'AmaNEk', 26, 6, 'Active');
+insert into player (id_player, name, surname, nickname, age, id_team, player_type) values (30, 'Liam', 'Chinge de Hals', 'nexa', 25, 6, 'Active');
+
+insert into player (id_player, name, surname, nickname, age, id_team, player_type) values (31, 'Ron', 'Bowditch', 'olofmaster', 21, 7, 'Active');
+insert into player (id_player, name, surname, nickname, age, id_team, player_type) values (32, 'Wynny', 'Shoveller', 'NiKo', 26, 7, 'Active');
+insert into player (id_player, name, surname, nickname, age, id_team, player_type) values (33, 'Beatrice', 'Farquarson', 'rain', 26, 7, 'Active');
+insert into player (id_player, name, surname, nickname, age, id_team, player_type) values (34, 'Izabel', 'Twentyman', 'coldzera', 23, 7, 'Active');
+insert into player (id_player, name, surname, nickname, age, id_team, player_type) values (35, 'Giffy', 'Lyddy', 'broky', 22, 7, 'Active');
+
+insert into player (id_player, name, surname, nickname, age, raiting, id_team, player_type) values (36, 'Bank', 'Pedlingham', 'stanislaw', 30, 30, 8, 'Active');
+insert into player (id_player, name, surname, nickname, age, raiting, id_team, player_type) values (37, 'Florrie', 'Freckelton', 'tarik', 29, 31, 8, 'Active');
+insert into player (id_player, name, surname, nickname, age, id_team, player_type) values (38, 'Tessy', 'Budcock', 'Brehze', 23, 8, 'Active');
+insert into player (id_player, name, surname, nickname, age, id_team, player_type) values (39, 'Taryn', 'Gowrie', 'Ethan', 30, 8, 'Active');
+insert into player (id_player, name, surname, nickname, age, id_team, player_type) values (40, 'Evy', 'Dumsday', 'CeRq', 26, 8, 'Active');
+
+insert into player (id_player, name, surname, nickname, age, raiting, id_team, player_type) values (41, 'Laughton', 'O Sullivan', 'HEN1', 24, 40, 9, 'Active');
+insert into player (id_player, name, surname, nickname, age, raiting, id_team, player_type) values (42, 'Marissa', 'Sporner', 'arT', 18, 99, 9, 'Active');
+insert into player (id_player, name, surname, nickname, age, raiting, id_team, player_type) values (43, 'Nadine', 'Kose', 'yuurih', 30, 121, 9, 'Active');
+insert into player (id_player, name, surname, nickname, age, raiting, id_team, player_type) values (44, 'Yolane', 'Aliberti', 'VINI', 30, 43, 9, 'Active');
+insert into player (id_player, name, surname, nickname, age, raiting, id_team, player_type) values (45, 'Zilvia', 'Loads', 'KSCERATO', 24, 44, 9, 'Active');
+
+insert into player (id_player, name, surname, nickname, age, id_team, player_type) values (46, 'Maribelle', 'Druce', 'jks', 30, 10, 'Active');
+insert into player (id_player, name, surname, nickname, age, id_team, player_type) values (47, 'Harlen', 'Matteo', 'AZR', 21, 10, 'Active');
+insert into player (id_player, name, surname, nickname, age, id_team, player_type) values (48, 'Brent', 'Bonellie', 'jkaem', 24, 10, 'Active');
+insert into player (id_player, name, surname, nickname, age, raiting, id_team, player_type) values (49, 'Gwenny', 'Danilovic', 'Gratisfaction', 25, 51, 10, 'Active');
+insert into player (id_player, name, surname, nickname, age, raiting, id_team, player_type) values (50, 'Chanda', 'Crookall', 'Liazz', 26, 100000, 10, 'Active');
+
+insert into player (id_player, name, surname, nickname, age, raiting, id_team, player_type) values (51, 'Annabella', 'Dyton', 'twist', 21, null, 11, 'Active');
+insert into player (id_player, name, surname, nickname, age, raiting, id_team, player_type) values (52, 'Pamella', 'Lumbers', 'Lekr0', 25, 70, 11, 'Active');
+insert into player (id_player, name, surname, nickname, age, raiting, id_team, player_type) values (53, 'Jeniece', 'Ianniello', 'REZ', 19, 80, 11, 'Active');
+insert into player (id_player, name, surname, nickname, age, raiting, id_team, player_type) values (54, 'Mandi', 'Frew', 'nawwk', 25, 90, 11, 'Active');
+insert into player (id_player, name, surname, nickname, age, raiting, id_team, player_type) values (55, 'Cahra', 'Ruzic', 'Plopski', 29, 110, 11, 'Active');
+
+insert into player (id_player, name, surname, nickname, age, raiting, id_team, player_type) values (56, 'Suzy', 'Sutter', 'AcilioN', 19, 91, 12, 'Active');
+insert into player (id_player, name, surname, nickname, age, raiting, id_team, player_type) values (57, 'Patrick', 'McKenny', 'Bubzkji', 30, 81, 12, 'Active');
+insert into player (id_player, name, surname, nickname, age, raiting, id_team, player_type) values (58, 'Marlowe', 'Del Castello', 'acor', 22, 71, 12, 'Active');
+insert into player (id_player, name, surname, nickname, age, raiting, id_team, player_type) values (59, 'Georgie', 'Brickwood', 'sjuush', 30, 72, 12, 'Active');
+insert into player (id_player, name, surname, nickname, age, raiting, id_team, player_type) values (60, 'Issie', 'Playle', 'roej', 21, null, 12, 'Active');
+
+insert into player (id_player, name, surname, nickname, age, raiting, id_team, player_type) values (61, 'Cyb', 'Fennessy', 'shox', 25, null, 13, 'Active');
+insert into player (id_player, name, surname, nickname, age, raiting, id_team, player_type) values (62, 'Hamlen', 'Mullaney', 'RpK', 23, null, 13, 'Active');
+insert into player (id_player, name, surname, nickname, age, raiting, id_team, player_type) values (63, 'Jedidiah', 'Reaney', 'apEX', 18, null, 13, 'Active');
+insert into player (id_player, name, surname, nickname, age, raiting, id_team, player_type) values (64, 'Juliet', 'Tuck', 'ZywOo', 22, 1, 13, 'Active');
+insert into player (id_player, name, surname, nickname, age, raiting, id_team, player_type) values (65, 'Josepha', 'McGawn', 'misutaa', 28, null, 13, 'Active');
+
+insert into player (id_player, name, surname, nickname, age, raiting, id_team, player_type) values (66, 'Lucas', 'Scullion', 'FalleN', 26, 200, 14, 'Active');
+insert into player (id_player, name, surname, nickname, age, raiting, id_team, player_type) values (67, 'Rebekah', 'Pregel', 'kNgV-', 29, 300, 14, 'Active');
+insert into player (id_player, name, surname, nickname, age, raiting, id_team, player_type) values (68, 'Josepha', 'Roles', 'fer', 29, 400, 14, 'Active');
+insert into player (id_player, name, surname, nickname, age, raiting, id_team, player_type) values (69, 'Clayborne', 'Stodit', 'TACO', 500, 0, 14, 'Active');
+insert into player (id_player, name, surname, nickname, age, raiting, id_team, player_type) values (70, 'Cindy', 'Pires', 'meyern', 30, 600, 14, 'Active');
+
+insert into player (id_player, name, surname, nickname, age, raiting, id_team, player_type) values (71, 'Mavra', 'Imison', 'NBK-', 21, 1337, 15, 'Active');
+insert into player (id_player, name, surname, nickname, age, raiting, id_team, player_type) values (72, 'Tiler', 'Mewe', 'valde', 25, 322, 15, 'Active');
+insert into player (id_player, name, surname, nickname, age, raiting, id_team, player_type) values (73, 'Robert', 'Venmore', 'Aleksib', 22, 228, 15, 'Active');
+insert into player (id_player, name, surname, nickname, age, raiting, id_team, player_type) values (74, 'Corliss', 'Trevor', 'ISSAA', 28, 420, 15, 'Active');
+insert into player (id_player, name, surname, nickname, age, raiting, id_team, player_type) values (75, 'Lorraine', 'Lardier', 'mantuu', 19, 111, 15, 'Active');
+
+insert into player (id_player, name, surname, nickname, age, player_type) values (76, 'Karita', 'Cuttle', 'KUKLI', 25, 'Banned');
+insert into player (id_player, name, surname, nickname, age, player_type) values (77, 'Shell', 'Mouse', 'badass1337', 30, 'Banned');
+insert into player (id_player, name, surname, nickname, age, player_type) values (78, 'Gavin', 'Clements', 'I#*!urmom', 23, 'Banned');
+insert into player (id_player, name, surname, nickname, age, player_type) values (79, 'Cristian', 'Kellegher', 'i_cheat_in_DBS', 27, 'Banned');
+insert into player (id_player, name, surname, nickname, age, player_type) values (80, 'Corny', 'Munt', 'KUKLI', 18, 'Banned');
+
+/*ACTIVE TABLE*/
+insert into active (id_player, active_from) values (1, '14.01.2020');
+insert into active (id_player, active_from) values (2, '23.10.2013');
+insert into active (id_player, active_from) values (3, '09.12.2015');
+insert into active (id_player, active_from) values (4, '15.08.2015');
+insert into active (id_player, active_from) values (5, '22.08.2011');
+insert into active (id_player, active_from) values (6, '13.03.2011');
+insert into active (id_player, active_from) values (7, '01.06.2012');
+insert into active (id_player, active_from) values (8, '05.07.2016');
+insert into active (id_player, active_from) values (9, '01.07.2015');
+insert into active (id_player, active_from) values (10, '04.04.2018');
+insert into active (id_player, active_from) values (11, '23.06.2011');
+insert into active (id_player, active_from) values (12, '02.03.2018');
+insert into active (id_player, active_from) values (13, '20.06.2012');
+insert into active (id_player, active_from) values (14, '31.03.2020');
+insert into active (id_player, active_from) values (15, '02.03.2017');
+insert into active (id_player, active_from) values (16, '28.02.2020');
+insert into active (id_player, active_from) values (17, '07.05.2020');
+insert into active (id_player, active_from) values (18, '12.03.2014');
+insert into active (id_player, active_from) values (19, '13.02.2016');
+insert into active (id_player, active_from) values (20, '02.08.2018');
+insert into active (id_player, active_from) values (21, '27.01.2014');
+insert into active (id_player, active_from) values (22, '12.12.2018');
+insert into active (id_player, active_from) values (23, '29.05.2019');
+insert into active (id_player, active_from) values (24, '16.09.2018');
+insert into active (id_player, active_from) values (25, '04.05.2017');
+insert into active (id_player, active_from) values (26, '03.04.2015');
+insert into active (id_player, active_from) values (27, '03.06.2010');
+insert into active (id_player, active_from) values (28, '18.05.2018');
+insert into active (id_player, active_from) values (29, '11.03.2019');
+insert into active (id_player, active_from) values (30, '01.07.2010');
+insert into active (id_player, active_from) values (31, '21.05.2014');
+insert into active (id_player, active_from) values (32, '23.03.2020');
+insert into active (id_player, active_from) values (33, '20.06.2010');
+insert into active (id_player, active_from) values (34, '15.01.2020');
+insert into active (id_player, active_from) values (35, '30.04.2020');
+insert into active (id_player, active_from) values (36, '27.08.2014');
+insert into active (id_player, active_from) values (37, '29.06.2011');
+insert into active (id_player, active_from) values (38, '21.09.2013');
+insert into active (id_player, active_from) values (39, '13.04.2014');
+insert into active (id_player, active_from) values (40, '11.12.2012');
+insert into active (id_player, active_from) values (41, '12.01.2014');
+insert into active (id_player, active_from) values (42, '08.01.2016');
+insert into active (id_player, active_from) values (43, '05.08.2019');
+insert into active (id_player, active_from) values (44, '21.08.2017');
+insert into active (id_player, active_from) values (45, '09.06.2018');
+insert into active (id_player, active_from) values (46, '18.08.2011');
+insert into active (id_player, active_from) values (47, '29.05.2018');
+insert into active (id_player, active_from) values (48, '12.12.2015');
+insert into active (id_player, active_from) values (49, '15.10.2011');
+insert into active (id_player, active_from) values (50, '14.10.2018');
+insert into active (id_player, active_from) values (51, '23.10.2016');
+insert into active (id_player, active_from) values (52, '23.05.2019');
+insert into active (id_player, active_from) values (53, '04.02.2011');
+insert into active (id_player, active_from) values (54, '16.05.2017');
+insert into active (id_player, active_from) values (55, '21.12.2013');
+insert into active (id_player, active_from) values (56, '20.11.2018');
+insert into active (id_player, active_from) values (57, '23.05.2015');
+insert into active (id_player, active_from) values (58, '24.06.2015');
+insert into active (id_player, active_from) values (59, '29.08.2018');
+insert into active (id_player, active_from) values (60, '29.12.2013');
+insert into active (id_player, active_from) values (61, '23.12.2018');
+insert into active (id_player, active_from) values (62, '22.08.2018');
+insert into active (id_player, active_from) values (63, '03.03.2018');
+insert into active (id_player, active_from) values (64, '21.05.2017');
+insert into active (id_player, active_from) values (65, '31.10.2016');
+insert into active (id_player, active_from) values (66, '05.02.2016');
+insert into active (id_player, active_from) values (67, '02.07.2019');
+insert into active (id_player, active_from) values (68, '11.11.2011');
+insert into active (id_player, active_from) values (69, '01.07.2017');
+insert into active (id_player, active_from) values (70, '01.09.2017');
+insert into active (id_player, active_from) values (71, '05.05.2018');
+insert into active (id_player, active_from) values (72, '02.05.2020');
+insert into active (id_player, active_from) values (73, '04.05.2011');
+insert into active (id_player, active_from) values (74, '13.04.2014');
+insert into active (id_player, active_from) values (75, '17.09.2012');
+
+
+
+
+
+/*BANNED TABLE*/
+insert into banned (id_player, reason, banned_from, untill) values (76, 'chating', '28.11.2012', '01.01.9999');
+insert into banned (id_player, reason, banned_from, untill) values (77, 'behavior', '08.11.2014', '29.3.2021');
+insert into banned (id_player, reason, banned_from, untill) values (78, 'don''t like DBS', '02.04.2016', '01.01.2111');
+insert into banned (id_player, reason, banned_from, untill) values (79, 'behavior', '14.12.2012', '31.12.2111');
+insert into banned (id_player, reason, banned_from, untill) values (80, 'dont like DBS', '02.01.2018', '30.01.2020');
+
+/*COACH TABLE*/
+insert into coach (id_coach, name, surname, age, id_team) values (1, 'Tomaso', 'Robottham', 25, 1);
+insert into coach (id_coach, name, surname, age, id_team) values (2, 'Shelbi', 'Silley', 25, 2);
+insert into coach (id_coach, name, surname, age, id_team) values (3, 'Vanna', 'Sullly', 35, 15);
+insert into coach (id_coach, name, surname, age, id_team) values (4, 'Vivyan', 'Lodge', 33, 14);
+insert into coach (id_coach, name, surname, age, id_team) values (5, 'Shaina', 'Haggie', 29, 3);
+insert into coach (id_coach, name, surname, age, id_team) values (6, 'Fulton', 'Stamper', 34, 4);
+insert into coach (id_coach, name, surname, age, id_team) values (7, 'Titos', 'McCallister', 38, 13);
+insert into coach (id_coach, name, surname, age, id_team) values (9, 'Giuseppe', 'O'' Mulderrig', 37, 4);
+insert into coach (id_coach, name, surname, age, id_team) values (10, 'Yancey', 'Jeckells', 34, 5);
+insert into coach (id_coach, name, surname, age, id_team) values (13, 'Biddie', 'Prophet', 40, 6);
+insert into coach (id_coach, name, surname, age, id_team) values (14, 'Rosemary', 'Pinnocke', 30, 7);
+insert into coach (id_coach, name, surname, age, id_team) values (15, 'Gayel', 'Haresign', 33, 8);
+insert into coach (id_coach, name, surname, age, id_team) values (16, 'Blisse', 'Ipsly', 36, 9);
+
+
+
+
+commit;
